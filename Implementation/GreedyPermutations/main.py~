@@ -1,0 +1,51 @@
+N, K = map(int, raw_input().split())
+A = map(int, raw_input().split())
+
+i = 0
+k = 0
+Loc = []
+
+aux1=[]
+for j in range(N):
+    aux1.append([ A[j], j ])
+
+def getKey(item):
+    return item[0]
+aux = sorted(aux1, key=getKey)
+
+for j in range(len(A)):
+    Loc.append(aux[j][1])
+
+#print "A= ", A, "\nLoc =", Loc, "\n "
+#print " i=",i,", k=", k, ", A=", A, ", Loc=", Loc
+
+while k < K:
+    if i==(N-1):
+        break
+    else:
+        if ( A[i]==N-i ):
+            i += 1
+        
+        last = int( Loc[N-i-1] )
+        l2per= int( Loc[A[i]-1])
+
+        print "\t\t\t\t",last, l2per
+        print A[ Loc[N-i-1] ],"\t",  Loc[N-i-1], "\t", A[i], "\t", Loc[A[i]-1]
+
+        A[ last ] = A[i]
+        A[i]      = N-i
+
+        Loc[A[i]-1]  = int(last)
+        Loc[N-i-1]   = int(l2per)
+        
+        print A[ Loc[N-i-1] ],"\t",  Loc[N-i-1], "\t", A[i], "\t", Loc[A[i]-1]
+
+
+        i += 1
+        k += 1
+
+for i in range(100):
+    print A[i],
+print 
+
+

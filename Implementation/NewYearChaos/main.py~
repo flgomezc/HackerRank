@@ -1,0 +1,29 @@
+#!/bin/python
+
+import sys
+
+
+T = int(raw_input().strip())
+for a0 in xrange(T):
+    n = int(raw_input().strip())
+    q = map(int,raw_input().strip().split(' '))
+    flag == False
+    # your code goes here
+    aux =[]
+    for i in range(n):
+        aux.append([q[i],i])
+        if(abs(q[i]-(i+1))>2):
+            flag == True
+            
+    if flag:
+        print "Too chaotic"
+    else:
+        1
+        # Find permutations
+        
+        def getKey(item):
+            return item[0]
+        aux1 = sorted( aux, key=getKey )
+
+        for a in aux1:
+            print a,

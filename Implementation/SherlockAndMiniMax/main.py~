@@ -1,0 +1,63 @@
+from math import floor
+
+N = int(raw_input())
+A = map(int, raw_input().split())
+p,q = map(int, raw_input().split())
+
+A.sort()
+
+#print N, A, p,q
+
+a = 0
+b = 0
+mina = -1.*float('inf')
+minA = A[N-1]-A[0]
+minq = A[N-1]-A[0]
+minp = A[N-1]-A[0]
+minlist =[]
+minQ = []
+minP = []
+
+print mina
+
+for i in range(N-1):
+    aux1 = abs(A[i]-A[i+1])/2.
+    if (aux1 > mina) & (mina>=1):
+        minlist =[]
+        mina = aux1
+        minA = floor(mina)
+    if aux1 == mina:
+        minlist.append([A[i],A[i+1]])
+    
+    aux2 = abs(A[i]-p)
+    if aux2 == 0:
+        aux2 == float('inf')
+    if aux2 < minp:
+        minp = aux2
+        minP = A[i]
+        
+     
+    aux3 = abs(A[i]-q)
+    if aux3 == 0:
+        aux3 == float('inf')   
+    if aux3 < minq:
+        minq = aux3
+        minQ = A[i]
+    
+if len(minlist) == 0:
+    minlist.append([float('nan')])
+print A, "\n", minlist, minA, minlist[0][0]+minA,"\n", minp, p, minP, "\n", minq, q, minQ
+
+#print(minA,minp,minq)
+x = max(minA, minp, minq)
+
+M = []
+
+if minA == x:
+    M.append( minlist[0][0] + minA)
+if minp == x:
+    M.append( p)
+if minq == x:
+    M.append( q)
+
+print min(M)
