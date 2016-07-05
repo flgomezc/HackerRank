@@ -1,0 +1,12 @@
+N = int(raw_input())
+
+for n in range(N):
+    S = raw_input()
+    L = len(S)
+    print S
+    T = ""
+    for i in range(L):
+        T += S[L-i-1]
+    
+    print abs(S[2]-S[1])
+    print T
