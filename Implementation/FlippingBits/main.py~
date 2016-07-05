@@ -1,0 +1,26 @@
+T = int(raw_input())
+
+for t in range(T):
+    a = int(raw_input())
+    s = "{0:b}".format(a)
+    
+    LS = len(s)
+    r=""
+    for i in range(32-LS):
+        r+="0"
+        
+    r+=s
+    
+    print r
+    r = list(r)
+    
+    for a in r:
+        a = int(a)
+    
+    for i in range(LS+1):
+        if r[i]==1:
+            r[i]=0
+        else:
+            r[i]=1
+
+    print r
